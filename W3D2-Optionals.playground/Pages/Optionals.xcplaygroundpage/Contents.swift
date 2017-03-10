@@ -1,4 +1,5 @@
-import UIKit
+//import UIKit
+
 //: # Swift Intro
 //:
 //: ## Optionals and nil
@@ -32,7 +33,7 @@ var convertedNum = Double(numberString) //convert numberString to a Double
 //:
 //: So now let's try to add 1 to our `convertedNum` variable.
 
-//convertedNum = convertedNum + 1 // uncomment this line!
+convertedNum = convertedNum! + 1 // uncomment this line!
 
 //: Looks like the compiler doesn't like that! It's giving us a cryptic error about applying binary operators and types and things, and offers the suggestion of adding an exclaimation point!
 //:
@@ -49,16 +50,17 @@ var convertedNum = Double(numberString) //convert numberString to a Double
 var inputString = "hello"
 // try to convert inputString to an Int here:
 
+var stringConverted = Int(inputString)
 
 //: If you've done everything right you should see "nil" along the right-hand gutter of the playground. This is what we use to represent "nothing". Only optional variables can have a value of `nil`.
 //:
 //: ## Challenge 2
 //:
 //: First, make the second line below compile by adding a force unwrap.
-//: Then, change the string "1" to "🔥" and observe how the playground responds (or doesn't respond)
+//: Then, change the string to "1" from "🔥" and observe how the playground responds (or doesn't respond)
 
-var number = Int("🔥")
-// number + 1 // uncomment and fix this.
+var number = Int("1")
+var newNumber = number! + 1 // uncomment and fix this.
 
 //: In general, force unwrapping is always a risk for a crash, and should be used sparingly and with caution.
 //:
@@ -85,6 +87,12 @@ if let unwrapped = number {
 //: Here's an optional variable. Conditionally unwrap and print it if it exists, print "no greeting" if it doesn't exist.
 
 var greeting: String? = "Aloha!"
+
+if let unwrappedGreeting = greeting {
+    print("\(unwrappedGreeting)")
+} else {
+    print("no greeting")
+}
 
 
 //: ## One last thing...
